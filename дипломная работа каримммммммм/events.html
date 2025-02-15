@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Company Search</title>
+    <link rel="stylesheet" href="style3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!--GOOGLE FONTS-->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet"> 
+</head>
+<body>
+    <header id="menu">
+        <a href="index.html" class="logolink"><img src="images/logogo.svg" class="logo"></a>
+        <nav>
+            <ul class="nav__links">
+                <li><a href="index.html">Main page</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="friends.html">Friends</a></li>
+            </ul>
+            </nav>
+        </ul>
+        <a id="signup" href="signup.html"><button>Sign up</button></a>
+    </header>
+    <div class="search">
+        <h1>Find a company for your event!</h1>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search...">
+            <button id="searchButton" onclick="searchCompany()">Search</button>
+            <button id="createEventButton" onclick="openCreateEventModal()">Create an event</button>
+        </div>
+    </div>
+
+    <section class="events">
+        <h2>Popular events</h2>
+        <div id="eventGrid">
+            <div class="event-card">
+                <img src="https://via.placeholder.com/300x200?text=Sunset+Events" alt="Sunset Event Planners">
+                <h3>Sunset gatherings</h3>
+                <p>Magical sunset on the beach.</p>
+                <button class="participate-btn" onclick="participateEvent('Sunset Event Planners')">Participate</button>
+            </div>
+            <div class="event-card">
+                <img src="https://via.placeholder.com/300x200?text=Creative+Planners" alt="Creative Party Planners">
+                <h3>Party</h3>
+                <p>Make yourself new friends!</p>
+                <button class="participate-btn" onclick="participateEvent('Creative Party Planners')">Participate</button>
+            </div>
+
+            <div class="event-card">
+                <img src="https://via.placeholder.com/300x200?text=Festive+Celebrations" alt="Festive Celebrations">
+                <h3>Night festival</h3>
+                <p>Festival with a with a touch of magic</p>
+                <button class="participate-btn" onclick="participateEvent('Festive Celebrations')">Participate</button>
+            </div>
+            <div class="event-card">
+                <img src="https://via.placeholder.com/300x200?text=Orange+Wave" alt="Orange Wave Productions">
+                <h3>Concert</h3>
+                <p>Enjoy your favourite group with others!</p>
+                <button class="participate-btn" onclick="participateEvent('Orange Wave Productions')">Participate</button>
+            </div>
+        </div>
+    </section>
+
+    <div id="createEventModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCreateEventModal()">&times;</span>
+            <h2>Create a new event</h2>
+            <form id="createEventForm">
+                <label for="eventName">Name:</label>
+                <input type="text" id="eventName" required><br><br>
+                
+                <label for="eventDescription">Description:</label>
+                <textarea id="eventDescription" rows="4" required></textarea><br><br>
+                
+                <label for="eventImageUrl">image URL:</label>
+                <input type="text" id="eventImageUrl" placeholder="Необязательно"><br><br>
+                
+                <button type="button" onclick="submitNewEvent()">Create event</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="events.js"></script>
+    <footer>
+        <div class="footer">
+        <div class="row">
+        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-instagram"></i></a>
+        <a href="#"><i class="fa fa-youtube"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+        </div>
+        
+        <div class="row">
+        <ul>
+        <li><a href="#">Contact us</a></li>
+        <li><a href="#">Our Services</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms & Conditions</a></li>
+        <li><a href="#">Career</a></li>
+        </ul>
+        </div>
+        
+        <div class="row">
+        KARIM copyright © 2025 KarimCorp - All rights reserved
+        </div>
+        </div>
+        </footer>
+        </body>
+        </html>
+</body>
+</html>

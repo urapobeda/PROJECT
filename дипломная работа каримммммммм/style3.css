@@ -1,0 +1,345 @@
+/* General styling */
+@font-face {
+    font-family: 'Montserrat';
+    src: url(fonts/Montserrat-Medium.ttf);
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    color: #333;
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+.search{
+    background-image: url(images/bg2.jpg);
+    background-size: cover;
+    background-position: right;
+    overflow: hidden;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.search h1 {
+    text-shadow: rgb(0, 0, 0) 0px 0px 7px ;
+    color: #ff6600;
+    margin: 0;
+    color: white;
+    font-size: 2.5em;
+}
+.nav__links{
+    list-style: none;
+}
+
+.nav__links li{
+    display: inline-block;
+    padding: 0px 10vh;
+}
+
+.nav__links li a{
+    font-size: 18px;
+    transition: all 0.3s ease 0s;
+}
+.nav__links li a:hover{
+    color: #EC9131;
+}
+.logo{
+    width: 150px;
+    cursor: pointer;
+}
+.logolink{
+    height: 18.1px;
+}
+li, a, button{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #120f0e;
+    text-decoration: none;
+}
+li{
+    margin-left:40px;
+    margin-right: 40px;
+}
+button{
+    padding: 9px 25px;
+    background-color: rgba(236, 145, 49, 1);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+button:hover{
+    
+    background-color: rgba(255, 119, 86, 0.8.);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+header{
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 5%;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.search input {
+    padding: 15px;
+    width: 60%;
+    max-width: 500px;
+    font-size: 1.2em;
+    border:none;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: 150ms ease;
+}
+.search input:hover{
+    transform: scale(1.02);
+}
+.search input:focus{
+    outline: none;
+}
+
+.search button {
+    font-family: 'Montserrat';
+    padding: 15px;
+    font-size: 1.2em;
+    background-color: white;
+    color: #ff6600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.search button:hover {
+    background-color: #ff6600;
+    color: white;
+}
+
+/* Event section */
+.events {
+    padding: 50px 20px;
+}
+
+.events h2 {
+    font-size: 2em;
+    color: #ff6600;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Grid for event cards */
+#eventGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Individual event card styling */
+.event-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.event-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.event-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.event-card h3 {
+    font-size: 1.6em;
+    color: #ff6600;
+    margin: 15px 0 10px;
+    padding: 0 20px;
+}
+
+.event-card p {
+    padding: 0 20px;
+    font-size: 1em;
+    color: #555;
+}
+
+/* Stylish Participate Button */
+.participate-btn {
+    margin: 15px 20px 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: white;
+    background-color: #ff6600;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.participate-btn:hover {
+    background-color: #ff4500;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Modal styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    width: 50%;
+    border-radius: 8px;
+}
+
+.close {
+    float: right;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form input, form textarea {
+    font-size: 1em;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+form button {
+    padding: 10px;
+    font-size: 1.2em;
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #ff4500;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .search h1 {
+        font-size: 1.8em;
+    }
+
+    .search input {
+        width: 90%;
+    }
+
+    .search button {
+        width: auto;
+    }
+
+    .events h2 {
+        font-size: 1.6em;
+    }
+
+    .modal-content {
+        width: 90%;
+    }
+}
+.footer{
+    background:#000;
+    padding:30px 0px;
+    font-family: 'Play', sans-serif;
+    text-align:center;
+    }
+    .footer{
+    background:#000;
+    padding:30px 0px;
+    font-family: 'Play', sans-serif;
+    text-align:center;
+    }
+    .footer .row{
+    width:100%;
+    margin:1% 0%;
+    padding:0.6% 0%;
+    color:gray;
+    font-size:0.8em;
+    background:#000;
+    }
+    
+    .footer .row a{
+    text-decoration:none;
+    color:gray;
+    transition:0.5s;
+    background:#000;
+    }
+    
+    .footer .row a:hover{
+    color:#fff;
+    }
+    
+    .footer .row ul{
+    background:#000;
+    }
+    
+    .footer .row ul li{
+    display:inline-block;
+    margin:0px 30px;
+    }
+    
+    .footer .row a i{
+    font-size:2em;
+    margin:0% 1%;
+    background:#000;
+    }
+    
+    @media (max-width:720px){
+    .footer{
+    text-align:left;
+    padding:5%;
+    }
+    .footer .row ul li{
+    display:block;
+    margin:10px 0px;
+    text-align:left;
+    }
+    .footer .row a i{
+    margin:0% 3%;
+    }
+    }
