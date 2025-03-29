@@ -21,20 +21,19 @@ function showError(message) {
 
 document.addEventListener('DOMContentLoaded', () => {
     const signupForm = document.getElementById('form');
-    
+
     if (signupForm && window.location.pathname.includes('signup.html')) {
         signupForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            
+
             const email = document.getElementById('email-input').value.trim();
             const password = document.getElementById('password-input').value.trim();
             const repeatPassword = document.getElementById('repeat-password-input').value.trim();
             const name = document.getElementById('firstname-input').value.trim();
 
-            showError(''); 
+            showError('');
 
             try {
-                
                 if (!name || !email || !password || !repeatPassword) {
                     throw new Error('All fields are required');
                 }
@@ -47,23 +46,26 @@ document.addEventListener('DOMContentLoaded', () => {
                     throw new Error('Passwords do not match');
                 }
 
-                if (!/(?=.\d)(?=.[!@#$%^&])(?=.[a-zA-Z]).{8,}$/.test(password)) {
-                    throw new Error('Password must be at least 8 characters with one number and one special character');
+                if (password.length < 8) {
+                    throw new Error('Password must be at least 8 characters long');
                 }
 
-              
                 const usersRef = db.collection('users');
                 const snapshot = await usersRef.where('email', '==', email).get();
-                
+
                 if (!snapshot.empty) {
                     throw new Error('Email already registered');
                 }
 
-          
                 const docRef = await usersRef.add({
                     name,
                     email,
                     password,
+                    gender: '',
+                    age: '',
+                    participatedEvents: [],
+                    friends: [],
+                    admin: false,
                     createdAt: firebase.firestore.FieldValue.serverTimestamp()
                 });
 
@@ -77,18 +79,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-
     if (window.location.pathname.includes('login.html')) {
         const loginForm = document.getElementById('form');
-        
+
         if (loginForm) {
             loginForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
-                
+
                 const email = document.getElementById('email-input').value.trim();
                 const password = document.getElementById('password-input').value.trim();
 
-                showError(''); 
+                showError('');
 
                 try {
                     if (!email || !password) {
@@ -102,11 +103,15 @@ document.addEventListener('DOMContentLoaded', () => {
                         throw new Error('Invalid email or password');
                     }
 
-                    const userData = snapshot.docs[0].data();
-                    
+                    const userDoc = snapshot.docs[0];
+                    const userData = userDoc.data();
+
                     if (userData.password !== password) {
                         throw new Error('Invalid email or password');
                     }
+
+                    localStorage.setItem('userId', userDoc.id);
+                    localStorage.setItem('isAdmin', userData.admin ? 'true' : 'false');
 
                     alert('Login successful!');
                     window.location.href = 'index.html';
