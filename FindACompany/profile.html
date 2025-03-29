@@ -1,69 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Ваш профиль</title>
-        <link rel="stylesheet" href="profile-styles.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet" />
-      
-       
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ваш профиль</title>
+    <link rel="stylesheet" href="profile-styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet" />
 
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-
-        <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js"></script>
-      </head>
-      
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  </head>
+  <body>
     <header id="menu">
-        <a href="index.html" class="logolink"><img src="images/logo1.png" class="logo" alt="Logo"></a>
-        <nav>
-            <ul class="nav__links">
-                <li><a href="index.html">Main page</a></li>
-                <li><a href="events.html">Events</a></li>
-                <li><a href="friends.html">Friends</a></li>
-            </ul>
-        </nav>
-        <a id="signup" href="signup.html"><button>Sign in</button></a>
+      <a href="index.html" class="logolink"><img src="images/logo1.png" class="logo" alt="Logo"></a>
+      <nav>
+        <ul class="nav__links">
+          <li><a href="index.html">Main page</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="friends.html">Friends</a></li>
+        </ul>
+      </nav>
+      <a id="signup" href="signup.html"><button>Sign in</button></a>
     </header>
 
     <div class="hello">
-        <h1 id="User"></h1>
+      <h1 id="User"></h1>
     </div>
+<section class="user-profile">
+  <div class="profile-container">
+    <div class="profile-left">
+      <img id="profileImage" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Profile Image">
+      <h2 id="profileName">User Name</h2>
+      <p id="profileRole" class="badge">User</p>
+    </div>
+    <div class="profile-right">
+      <h3>Personal Information</h3>
+      <ul class="profile-info">
+        <li><strong>Gender:</strong> <span id="profileGender">Not specified</span></li>
+        <li><strong>Age:</strong> <span id="profileAge">Not specified</span></li>
+        <li><strong>Status:</strong> <span id="profileStatus">User</span></li>
+        <li><strong>Email:</strong> <span id="profileEmail">example@email.com</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
 
     <section class="events">
-        <h2>Events you have shown interest in:</h2>
-        <div id="participatedEventsGrid" class="event-grid">
-            <!-- Dynamic event cards will appear here -->
-        </div>
+      <h2>Events you have shown interest in:</h2>
+      <div id="participatedEventsGrid" class="event-grid">
+        <!-- Dynamic event cards will appear here -->
+      </div>
     </section>
 
     <footer>
-        <div class="footer">
-            <div class="row">
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-instagram"></i></a>
-                <a href="#"><i class="fa fa-youtube"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-            </div>
-            <div class="row">
-                <ul>
-                    <li><a href="#">Contact us</a></li>
-                    <li><a href="#">Our Services</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms & Conditions</a></li>
-                    <li><a href="#">Career</a></li>
-                </ul>
-            </div>
-            <div class="row">
-                KARIM copyright © 2025 KarimCorp - All rights reserved
-            </div>
+      <div class="footer">
+        <div class="row">
+          <a href="#"><i class="fa fa-facebook"></i></a>
+          <a href="#"><i class="fa fa-instagram"></i></a>
+          <a href="#"><i class="fa fa-youtube"></i></a>
+          <a href="#"><i class="fa fa-twitter"></i></a>
         </div>
+        <div class="row">
+          <ul>
+            <li><a href="#">Contact us</a></li>
+            <li><a href="#">Our Services</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Career</a></li>
+          </ul>
+        </div>
+        <div class="row">
+          KARIM copyright © 2025 KarimCorp - All rights reserved
+        </div>
+      </div>
     </footer>
 
     <script src="profile-script.js"></script>
-</body>
+  </body>
 </html>

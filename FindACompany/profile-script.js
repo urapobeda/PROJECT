@@ -1,74 +1,92 @@
-document.addEventListener("DOMContentLoaded", async () => {
-    const firebaseConfig = {
-        apiKey: "AIzaSyAiJUeB2i586x5Ys_WjTeDptMHn102Il9k",
-        authDomain: "zharim-5eb40.firebaseapp.com",
-        projectId: "zharim-5eb40",
-        storageBucket: "zharim-5eb40.appspot.com",
-        messagingSenderId: "205812595210",
-        appId: "1:205812595210:web:c2014dde403d2f8cc83df3"
-    };
+// profile-script.js
 
-    if (!firebase.apps.length) {
-        firebase.initializeApp(firebaseConfig);
-    }
-
-    const db = firebase.firestore();
-
+// Firebase config
+const firebaseConfig = {
+    apiKey: "AIzaSyAiJUeB2i586x5Ys_WjTeDptMHn102Il9k",
+    authDomain: "zharim-5eb40.firebaseapp.com",
+    projectId: "zharim-5eb40",
+    storageBucket: "zharim-5eb40.appspot.com",
+    messagingSenderId: "205812595210",
+    appId: "1:205812595210:web:c2014dde403d2f8cc83df3"
+  };
+  
+  if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+  }
+  
+  const db = firebase.firestore();
+  
+  window.addEventListener("DOMContentLoaded", async () => {
+    const signupBtn = document.getElementById("signup");
     const userId = localStorage.getItem("userId");
-    const userIsAdmin = localStorage.getItem("isAdmin") === "true";
-    const userNameElem = document.getElementById("User");
-    const signoutBtn = document.getElementById("signup");
-    const eventGrid = document.getElementById("participatedEventsGrid");
-
+  
     if (!userId) {
-        userNameElem.textContent = "Please sign in";
-        signoutBtn.innerHTML = '<a href="signup.html">Sign up</a>';
-        return;
+      document.getElementById("User").innerText = "Please sign in.";
+      signupBtn.innerHTML = '<button>Sign in</button>';
+      signupBtn.href = 'signup.html';
+      return;
     }
-
+  
     try {
-        const doc = await db.collection("users").doc(userId).get();
-        if (!doc.exists) {
-            userNameElem.textContent = "Please sign in";
-            signoutBtn.innerHTML = '<a href="signup.html">Sign up</a>';
-            return;
-        }
-
-        const data = doc.data();
-        userNameElem.textContent = `Hello, ${data.name}`;
-
-        signoutBtn.textContent = "Sign out";
-        signoutBtn.addEventListener("click", () => {
-            localStorage.removeItem("userId");
-            localStorage.removeItem("isAdmin");
-            window.location.reload();
-        });
-
-        const participated = data.participatedEvents || [];
-
-        if (participated.length === 0) {
-            eventGrid.innerHTML = "<p>You are not participating in any events yet.</p>";
-        } else {
-            const eventsSnapshot = await db.collection("events")
-                .where(firebase.firestore.FieldPath.documentId(), "in", participated)
-                .get();
-
-            eventsSnapshot.forEach(doc => {
-                const e = doc.data();
-
-                const card = document.createElement("div");
-                card.className = "event-card";
-                card.innerHTML = `
-                    <img src="${e.imageUrl}" alt="${e.title}" />
-                    <h3>${e.title}</h3>
-                    <p>${e.description}</p>
-                `;
-                eventGrid.appendChild(card);
-            });
-        }
-
-    } catch (err) {
-        console.error("Error fetching profile:", err);
-        userNameElem.textContent = "Error loading profile.";
+      const userDoc = await db.collection("users").doc(userId).get();
+      if (!userDoc.exists) {
+        document.getElementById("User").innerText = "User not found.";
+        return;
+      }
+  
+      const userData = userDoc.data();
+      document.getElementById("User").innerText = `Hello, ${userData.name || "User"}`;
+  
+      document.getElementById("profileImage").src = userData.profilePicture || 'https://cdn-icons-png.flaticon.com/512/149/149071.png';
+      document.getElementById("profileName").innerText = userData.name || "Anonymous";
+      document.getElementById("profileGender").innerText = userData.gender || "Not specified";
+      document.getElementById("profileAge").innerText = userData.age || "Not specified";
+      document.getElementById("profileEmail").innerText = userData.email || "No email";
+      document.getElementById("profileStatus").innerText = userData.admin ? "Admin" : "User";
+  
+      signupBtn.innerHTML = '<button id="logout-btn">Sign out</button>';
+      signupBtn.href = '#';
+      document.getElementById("logout-btn").addEventListener("click", () => {
+        localStorage.removeItem("userId");
+        window.location.reload();
+      });
+  
+      loadParticipatedEvents(userData.participatedEvents || []);
+    } catch (error) {
+      console.error("Error loading profile:", error);
     }
-});
+  });
+  
+  async function loadParticipatedEvents(eventIds) {
+    const container = document.getElementById("participatedEventsGrid");
+    container.innerHTML = "";
+  
+    if (eventIds.length === 0) {
+      container.innerHTML = "<p>You are not participating in any events yet.</p>";
+      return;
+    }
+  
+    const db = firebase.firestore();
+  
+    for (const eventId of eventIds) {
+      try {
+        const eventDoc = await db.collection("events").doc(eventId).get();
+        if (eventDoc.exists) {
+          const data = eventDoc.data();
+  
+          const card = document.createElement("div");
+          card.className = "event-card";
+          card.innerHTML = `
+            <img src="${data.imageUrl || '#'}" alt="${data.title}" />
+            <h3>${data.title}</h3>
+            <p>${data.description}</p>
+          `;
+  
+          container.appendChild(card);
+        }
+      } catch (error) {
+        console.error("Error loading event:", error);
+      }
+    }
+  }
+  

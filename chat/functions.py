@@ -7,15 +7,16 @@ import re
 # Firebase Admin SDK
 import firebase_admin
 from firebase_admin import credentials, firestore
+from ../ka.env import *
 
 # Инициализация Firebase Admin (укажите правильный путь к serviceAccountKey.json)
 if not firebase_admin._apps:
     cred = credentials.Certificate("C:/Users/User/Desktop/PROJECT-main/serviceAccountKey.json")
     firebase_admin.initialize_app(cred)
-db = firestore.client()
+db = firestore.client()     
 
 # Настройка OpenAI
-openai.api_key = "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"  # Замените на ваш API-ключ
+openai.api_key = API_KEY
 client = openai.OpenAI(api_key=openai.api_key)
 
 def extract_full_text(url: str) -> str:
