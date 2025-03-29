@@ -1,5 +1,6 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     console.log('DOM fully loaded');
+
     const signupBtn = document.getElementById('mainsignup');
 
     const firebaseConfig = {
@@ -16,36 +17,33 @@ document.addEventListener('DOMContentLoaded', () => {
             firebase.initializeApp(firebaseConfig);
             console.log('Firebase initialized');
         }
-        
-        const auth = firebase.auth();
+
         const db = firebase.firestore();
 
-        auth.onAuthStateChanged(async (user) => {
-            console.log('Auth state changed. User logged in:', !!user);
-            
-            if (user) {
-                console.log('Authenticated user:', user.uid);
-                
-                try {
-                    const userRef = db.collection('users').doc(user.uid);
-                    const doc = await userRef.get();
+        
+        const userId = localStorage.getItem('userId');
+        console.log('User logged in:', !!userId);
 
-                    if (doc.exists) {
-                        const userData = doc.data();
-                        updateProfileButton(userData);
-                    } else {
-                        console.warn('User document not found');
-                        resetSignupButton();
-                    }
-                } catch (error) {
-                    console.error('Firestore error:', error);
+        if (userId) {
+            try {
+                const userRef = db.collection('users').doc(userId);
+                const doc = await userRef.get();
+
+                if (doc.exists) {
+                    const userData = doc.data();
+                    updateProfileButton(userData);
+                } else {
+                    console.warn('User document not found');
                     resetSignupButton();
                 }
-            } else {
-                console.log('No authenticated user');
+            } catch (error) {
+                console.error('Firestore error:', error);
                 resetSignupButton();
             }
-        });
+        } else {
+            console.log('No userId in localStorage');
+            resetSignupButton();
+        }
 
         function updateProfileButton(userData) {
             const profileImg = document.createElement('img');
