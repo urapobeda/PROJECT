@@ -1,293 +1,357 @@
 font-face {
+  font-family: 'Montserrat';
+  src: url(fonts/Montserrat-Medium.ttf);
+}
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+}
+.logo{
+  width: 150px;
+  cursor: pointer;
+}
+li, a, button{
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #120f0e;
+  text-decoration: none;
+}
+.logolink{
+  height: 18.1px;
+}
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 5%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.nav__links{
+  list-style: none;
+}
+
+.nav__links li{
+
+  display: inline-block;
+  padding: 0px 10vh;
+}
+
+.nav__links li a{
+  font-size: 18px;
+  transition: all 0.3s ease 0s;
+}
+.nav__links li a:hover{
+  color: #EC9131;
+}
+button{
+  padding: 9px 25px;
+  background-color: rgba(236, 145, 49, 1);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+button:hover{
+  
+  background-color: rgba(255, 119, 86, 0.8.);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+} 
+
+#profileicon a svg{
+  visibility: "hidden";
+}
+#main{
+  padding-top: 20px;
+  display: block;
+  text-align: center;
+  background-color: #EC9131;
+  padding-bottom: 20px;
+}
+
+#q{
+  background-color:#EC9131 ;
+}
+
+
+li{
+  margin-left:40px;
+  margin-right: 40px;
+}
+body{
+  margin:0;
+  overflow-x:hidden;
+  font-family: "Montserrat";
+  }
+
+.chat-title {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 36px;
+  color: #333;
+}
+
+#chatbot-section {
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.chat-box {
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  padding: 20px;
+  height: 400px;
+  overflow-y: scroll;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.message {
+  max-width: 70%;
+  padding: 12px 18px;
+  margin: 10px;
+  border-radius: 16px;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.user {
+  background-color: #d0ebff;
+  margin-left: auto;
+  text-align: right;
+}
+
+.bot {
+  background-color: #eeeeee;
+  margin-right: auto;
+  text-align: left;
+}
+
+.input-area {
+  display: flex;
+  margin-top: 20px;
+}
+
+.input-area input {
+  flex: 1;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 25px 0 0 25px;
+  border: 1px solid #ccc;
+}
+
+.input-area button {
+  background-color: #EC9131;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 0 25px 25px 0;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.input-area button:hover {
+  background-color: black;
+  color:white;
+}
+.chat-title {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 36px;
+  color: #333;
+}
+
+#chatbot-section {
+  padding: 0px 20px 40px 2px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.chat-box {
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  padding: 20px;
+  height: 400px;
+  overflow-y: scroll;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.message {
+  max-width: 70%;
+  padding: 12px 18px;
+  margin: 10px;
+  border-radius: 16px;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.user {
+  background-color: #d0ebff;
+  margin-left: auto;
+  text-align: right;
+}
+
+.bot {
+  background-color: #eeeeee;
+  margin-right: auto;
+  text-align: left;
+}
+
+.input-area {
+  display: flex;
+  margin-top: 20px;
+}
+
+.input-area input {
+  flex: 1;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 25px 0 0 25px;
+  border: 1px solid #ccc;
+}
+
+.input-area button {
+  background-color: #EC9131;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 0 25px 25px 0;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.input-area button:hover {
+  background-color: black;
+  color: white;
+}
+  
+.footer{
+  background:#000;
+  padding:30px 0px;
+  font-family: 'Play', sans-serif;
+  text-align:center;
+  }
+  .footer{
+  background:#000;
+  padding:30px 0px;
+  font-family: 'Play', sans-serif;
+  text-align:center;
+  }
+  .footer .row{
+  width:100%;
+  margin:1% 0%;
+  padding:0.6% 0%;
+  color:gray;
+  font-size:0.8em;
+  background:#000;
+  }
+  
+  .footer .row a{
+  text-decoration:none;
+  color:gray;
+  transition:0.5s;
+  background:#000;
+  }
+  
+  .footer .row a:hover{
+  color:#fff;
+  }
+  
+  .footer .row ul{
+  width:100%;
+  background:#000;
+  }
+  
+  .footer .row ul li{
+  display:inline-block;
+  margin:0px 30px;
+  }
+  
+  .footer .row a i{
+  font-size:2em;
+  margin:0% 1%;
+  background:#000;
+  }
+  
+  @media (max-width:720px){
+  .footer{
+  text-align:left;
+  padding:5%;
+  }
+  .footer .row ul li{
+  display:block;
+  margin:10px 0px;
+  text-align:left;
+  }
+  .footer .row a i{
+  margin:0% 3%;
+  }
+  }
+  @font-face {
     font-family: 'Montserrat';
     src: url(fonts/Montserrat-Medium.ttf);
 }
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    background-color: #ffffff;
-}
-.logo{
+
+.logo {
     width: 150px;
     cursor: pointer;
 }
-li, a, button{
-    font-family: "Montserrat", sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-    color: #120f0e;
-    text-decoration: none;
-}
-.logolink{
+
+.logolink {
     height: 18.1px;
 }
-header{
+
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 30px 5%;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: #ffffff;
 }
-.nav__links{
+
+.nav__links {
     list-style: none;
 }
 
-.nav__links li{
-
+.nav__links li {
     display: inline-block;
-    padding: 0px 10vh;
+    padding: 0px 5vh;
+    margin-left: 40px;
+    margin-right: 40px;
 }
 
-.nav__links li a{
+.nav__links li a {
     font-size: 18px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    color: #120f0e;
+    text-decoration: none;
     transition: all 0.3s ease 0s;
 }
-.nav__links li a:hover{
+
+.nav__links li a:hover {
     color: #EC9131;
 }
-button{
+
+button {
     padding: 9px 25px;
     background-color: rgba(236, 145, 49, 1);
     border: none;
     border-radius: 50px;
     cursor: pointer;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #120f0e;
     transition: all 0.3s ease 0s;
 }
-button:hover{
-    
-    background-color: rgba(255, 119, 86, 0.8.);
+
+button:hover {
+    background-color: rgba(255, 119, 86, 0.8);
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-} 
-
-#profileicon a svg{
-    visibility: "hidden";
 }
-#main{
-    padding-top: 20px;
-    display: block;
-    text-align: center;
-    background-color: #EC9131;
-    padding-bottom: 20px;
-}
-
-#q{
-    background-color:#EC9131 ;
-}
-
-
-li{
-    margin-left:40px;
-    margin-right: 40px;
-}
-body{
-    margin:0;
-    overflow-x:hidden;
-    font-family: "Montserrat";
-    }
-
-.chat-title {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 36px;
-    color: #333;
-  }
-  
-  #chatbot-section {
-    padding: 40px 20px;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  .chat-box {
-    background-color: #f9f9f9;
-    border-radius: 12px;
-    padding: 20px;
-    height: 400px;
-    overflow-y: scroll;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .message {
-    max-width: 70%;
-    padding: 12px 18px;
-    margin: 10px;
-    border-radius: 16px;
-    font-size: 16px;
-    line-height: 1.4;
-  }
-  
-  .user {
-    background-color: #d0ebff;
-    margin-left: auto;
-    text-align: right;
-  }
-  
-  .bot {
-    background-color: #eeeeee;
-    margin-right: auto;
-    text-align: left;
-  }
-  
-  .input-area {
-    display: flex;
-    margin-top: 20px;
-  }
-  
-  .input-area input {
-    flex: 1;
-    padding: 12px;
-    font-size: 16px;
-    border-radius: 25px 0 0 25px;
-    border: 1px solid #ccc;
-  }
-  
-.input-area button {
-    background-color: #EC9131;
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 0 25px 25px 0;
-    cursor: pointer;
-    font-weight: bold;
-    transition: 0.3s;
-  }
-  
-.input-area button:hover {
-    background-color: black;
-    color:white;
-}
-.chat-title {
-    text-align: center;
-    margin-top: 40px;
-    font-size: 36px;
-    color: #333;
-  }
-  
-#chatbot-section {
-    padding: 0px 20px 40px 2px;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-.chat-box {
-    background-color: #f9f9f9;
-    border-radius: 12px;
-    padding: 20px;
-    height: 400px;
-    overflow-y: scroll;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-.message {
-    max-width: 70%;
-    padding: 12px 18px;
-    margin: 10px;
-    border-radius: 16px;
-    font-size: 16px;
-    line-height: 1.4;
-  }
-  
-.user {
-    background-color: #d0ebff;
-    margin-left: auto;
-    text-align: right;
-  }
-  
-.bot {
-    background-color: #eeeeee;
-    margin-right: auto;
-    text-align: left;
-  }
-  
-.input-area {
-    display: flex;
-    margin-top: 20px;
-  }
-  
-.input-area input {
-    flex: 1;
-    padding: 12px;
-    font-size: 16px;
-    border-radius: 25px 0 0 25px;
-    border: 1px solid #ccc;
-  }
-  
-.input-area button {
-    background-color: #EC9131;
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 0 25px 25px 0;
-    cursor: pointer;
-    font-weight: bold;
-    transition: 0.3s;
-  }
-  
-  .input-area button:hover {
-    background-color: black;
-    color: white;
-}
-    
-.footer{
-    background:#000;
-    padding:30px 0px;
-    font-family: 'Play', sans-serif;
-    text-align:center;
-    }
-    .footer{
-    background:#000;
-    padding:30px 0px;
-    font-family: 'Play', sans-serif;
-    text-align:center;
-    }
-    .footer .row{
-    width:100%;
-    margin:1% 0%;
-    padding:0.6% 0%;
-    color:gray;
-    font-size:0.8em;
-    background:#000;
-    }
-    
-    .footer .row a{
-    text-decoration:none;
-    color:gray;
-    transition:0.5s;
-    background:#000;
-    }
-    
-    .footer .row a:hover{
-    color:#fff;
-    }
-    
-    .footer .row ul{
-    width:100%;
-    background:#000;
-    }
-    
-    .footer .row ul li{
-    display:inline-block;
-    margin:0px 30px;
-    }
-    
-    .footer .row a i{
-    font-size:2em;
-    margin:0% 1%;
-    background:#000;
-    }
-    
-    @media (max-width:720px){
-    .footer{
-    text-align:left;
-    padding:5%;
-    }
-    .footer .row ul li{
-    display:block;
-    margin:10px 0px;
-    text-align:left;
-    }
-    .footer .row a i{
-    margin:0% 3%;
-    }
-    }

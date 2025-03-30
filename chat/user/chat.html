@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FindACompany — ChatBot</title>
+
+  <link rel="stylesheet" href="../chatstyle.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <header>
+    <a  class="logolink"><img src="../../FindACompany/images/logo1.png" class="logo"></a>
+    <nav>
+        <ul class="nav__links">
+            <li><a href="../../FindACompany/index.html">Main page</a></li>
+            <li><a href="../../FindACompany/events.html">Events</a></li>
+            <li><a href="../../FindACompany/friends.html">Friends</a></li>
+            <li><a href="chat.html">AI Chat</a>                </li>
+        </ul>
+        </nav>
+    <a class="signup" href="../../FindACompany/signup.html" id="mainsignup"><button>Sign up</button></a>
+
+    
+    
+</header>
+
+  <main id="chatbot-section">
+    <h1 class="chat-title">Chat with FindACompany Assistant</h1>
+    <div class="chat-box" id="chat-box"></div>
+    <div class="input-area">
+      <input type="text" id="user-input" placeholder="Type your message..." />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer">
+      <div class="row">
+        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-instagram"></i></a>
+        <a href="#"><i class="fa fa-youtube"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+      </div>
+      <div class="row">
+        <ul>
+          <li><a href="#">Contact us</a></li>
+          <li><a href="#">Our Services</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
+          <li><a href="#">Career</a></li>
+        </ul>
+      </div>
+      <div class="row">
+        KARIM © 2025 KarimCorp — All rights reserved
+      </div>
+    </div>
+  </footer>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+
+<script src="chat.js"></script>
+
+</body>
+</html>
